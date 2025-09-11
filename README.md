@@ -3,6 +3,7 @@
 This project applies semantic segmentation to detect surface defects in industrial screen printing using the ISP-AD dataset. The aim is to localize defects at the pixel level rather than just classifying images as good/bad.
 
 ## Dataset
+link : https://www.kaggle.com/datasets/orvile/isp-ad-dataset.
 
 We used the Industrial Screen Printing Anomaly Detection (ISP-AD) dataset, which provides both synthetic and real defect data:
 
