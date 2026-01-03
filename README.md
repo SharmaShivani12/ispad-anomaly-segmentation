@@ -74,6 +74,8 @@ project/
 ├── .gitignore
 └── .gitlab-ci.yml
 
+---
+
 ## 🚀 Getting Started (Development)
 Prerequisites
 
