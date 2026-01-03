@@ -128,7 +128,7 @@ http://localhost:8000/docs
 
 ## 🧱 CI/CD Pipeline
 
-** GitLab CI/CD stages:**
+**GitLab CI/CD stages:**
 
 - Run automated tests
 
