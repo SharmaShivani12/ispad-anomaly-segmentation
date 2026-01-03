@@ -140,17 +140,14 @@ http://localhost:8000/docs
 
 The application can be installed and tested out of the box by reviewers.
 
-**Alterbative:**
+**Alternative:**
 1. git clone <repo-url>
 2. cd project-name
 3. python -m venv venv
-4. source venv/bin/activate   ( mac/linux)
-- venv\Scripts\activate (windows)
+4. source venv/bin/activate   ( mac/linux) or venv\Scripts\activate (windows)
 5. pip install -r requirements.txt
 6. uvicorn app.main:app --reload
   
-<img width="765" height="351" alt="image" src="https://github.com/user-attachments/assets/b2f0a790-68e6-4891-82e1-4fbda62293ac" />
-
 
 Important points:
 
