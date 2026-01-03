@@ -105,6 +105,15 @@ Client --> API Routes (FastAPI) --> Service Layer (Business Logic) --> Data Acce
 
 Business rules are handled in the service layer, while routes remain thin and focused on request/response handling.
 
+| Model    | Responsibility                           |
+| -------- | ---------------------------------------- |
+| Customer | System users (admin, employee, customer) |
+| Account  | Account ownership & balance              |
+| Transfer | Atomic money movement                    |
+| Role     | RBAC permissions                         |
+| AuditLog | Sensitive operation tracking             |
+
+
 ## 🧪 Running Tests
 pytest -q
 
@@ -116,4 +125,23 @@ Tests cover authentication, RBAC enforcement, account operations, and transfer e
 Interactive API documentation is available via Swagger UI:
 
 http://localhost:8000/docs
+
+## 🧱 CI/CD Pipeline
+
+** GitLab CI/CD stages:**
+
+- Run automated tests
+
+- Build Docker image
+
+- Push image to GitLab Container Registry
+
+- Deploy to development server using Docker Compose
+
+The application can be installed and tested out of the box by reviewers.
+
+Important points:
+
+<img width="517" height="246" alt="image" src="https://github.com/user-attachments/assets/4782f6d9-67e3-4e7a-8127-83cb2d1f0237" />
+
 
