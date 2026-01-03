@@ -54,7 +54,9 @@ This project is implemented as a **production-oriented prototype**, following cl
 | Testing | Pytest |
 
 ---
-🚀 Getting Started (Development)
+
+## 🚀 Getting Started (Development)
+
 Prerequisites
 
 Docker
@@ -77,24 +79,24 @@ http://localhost:8000/docs
 4. Stop the Application
 docker compose down
 
-🔑 Authentication & Authorization
+## 🔑 Authentication & Authorization
 
-Authentication via JWT
+- Authentication via JWT
 
-Authorization enforced using RBAC
+- Authorization enforced using RBAC
 
-All protected endpoints validate:
+- All protected endpoints validate:
 
-Token validity
+- Token validity
 
-User role
+- User role
 
-Resource ownership
+- Resource ownership
 
 Example request header
 Authorization: Bearer <access_token>
 
-🧩 System Design (High Level)
+## 🧩 System Design (High Level)
 
 The application follows a layered architecture for clarity and maintainability:
 
@@ -111,20 +113,15 @@ Database (SQLite)
 
 Business rules are handled in the service layer, while routes remain thin and focused on request/response handling.
 
-🧪 Running Tests
+## 🧪 Running Tests
 pytest -q
 
 
 Tests cover authentication, RBAC enforcement, account operations, and transfer edge cases.
-
-📚 API Documentation
-
-Interactive API documentation is available via Swagger UI:
-
-http://localhost:8000/docs
 
 ## 📚 API Documentation
 
 Interactive API documentation is available via Swagger UI:
 
 http://localhost:8000/docs
+
