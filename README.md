@@ -100,15 +100,7 @@ Authorization: Bearer <access_token>
 
 The application follows a layered architecture for clarity and maintainability:
 
-Client
-  ↓
-API Routes (FastAPI)
-  ↓
-Service Layer (Business Logic)
-  ↓
-Data Access Layer (SQLAlchemy ORM)
-  ↓
-Database (SQLite)
+Client --> API Routes (FastAPI) --> Service Layer (Business Logic) --> Data Access Layer (SQLAlchemy ORM) --> Database (SQLite)
 
 
 Business rules are handled in the service layer, while routes remain thin and focused on request/response handling.
