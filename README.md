@@ -59,9 +59,9 @@ This project is implemented as a **production-oriented prototype**, following cl
 
 Prerequisites
 
-Docker
+- Docker
 
-Docker Compose
+- Docker Compose
 
 1. Clone the Repository
 git clone <repository-url>
