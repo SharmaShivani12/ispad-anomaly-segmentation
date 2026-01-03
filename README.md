@@ -74,47 +74,47 @@ project/
 ├── .gitignore
 └── .gitlab-ci.yml
 
-🚀 Getting Started (Development)
+## 🚀 Getting Started (Development)
 Prerequisites
 
-Docker
+- Docker
 
-Docker Compose
+- Docker Compose
 
-Clone the Repository
+1. Clone the Repository
 git clone <repository-url>
 cd <project-directory>
 
-Build & Run the Application
+3. Build & Run the Application
 docker compose up --build
 
 
-The API will be available at:
+4. The API will be available at:
 
 http://localhost:8000/docs
 
-Stop the Application
+5. Stop the Application
 docker compose down
 
-🔑 Authentication & Authorization
+## 🔑 Authentication & Authorization
 
-Authentication via JWT
+- Authentication via JWT
 
-Authorization enforced using RBAC
+- Authorization enforced using RBAC
 
-All protected endpoints validate:
+**All protected endpoints validate:**
 
-Token validity
+- Token validity
 
-User role
+- User role
 
-Resource ownership
+- Resource ownership
 
 Example request header:
 
 Authorization: Bearer <access_token>
 
-🧩 System Design (High Level)
+## 🧩 System Design (High Level)
 
 The application follows a layered architecture for clarity and maintainability:
 
@@ -131,13 +131,13 @@ Database (SQLite)
 
 Business rules are handled in the service layer, while routes remain thin and focused on request/response handling.
 
-🧪 Running Tests
+## 🧪 Running Tests
 pytest -q
 
 
 Tests cover authentication, RBAC enforcement, account operations, and transfer edge cases.
 
-📚 API Documentation
+## 📚 API Documentation
 
 Interactive API documentation is available via Swagger UI:
 
