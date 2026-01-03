@@ -1,79 +1,115 @@
-## ISP-AD Anomaly Segmentation with DeepLabV3
+# 🏦 Banking API
 
-This project applies semantic segmentation to detect surface defects in industrial screen printing using the ISP-AD dataset. The aim is to localize defects at the pixel level rather than just classifying images as good/bad.
+A **FastAPI-based internal banking API** that simulates essential financial operations such as customer onboarding, account management, balance checks, and money transfers.
 
-## Dataset
-link : https://www.kaggle.com/datasets/orvile/isp-ad-dataset.
+This project is implemented as a **production-oriented prototype**, following clean architecture principles, Python best practices, **enforced Role-Based Access Control (RBAC)**, and a clearly documented path to production.
 
-We used the Industrial Screen Printing Anomaly Detection (ISP-AD) dataset, which provides both synthetic and real defect data:
+---
 
-~312k fault-free samples
+## 📌 Key Highlights
 
-~246k defective samples (mostly synthetic, plus 711 real factory defects)
+- JWT-based authentication
+- **Role-Based Access Control (RBAC) enforced**
+- Atomic money transfers
+- Clean, maintainable architecture
+- Dockerized setup (runs out of the box)
+- Docker Compose orchestration
+- GitLab CI/CD integration
+- Clear production-readiness roadmap
 
--- Images are available in 256×256 and 512×512 patches
+---
 
--- Formats include .png and .hdf5
+## ✨ Features
 
--- For this project, training was done on synthetic ASM patches (256×256), and evaluation included real defect masks.
+- Customer registration & login
+- JWT authentication
+- Role-based authorization:
+  - **Admin** – full access
+  - **Employee** – manage accounts & transfers
+  - **Customer** – access own accounts only
+- Account creation with initial deposits
+- Balance retrieval
+- Secure money transfers
+- Transfer history per account
+- Automatic database initialization
+- Default admin & customer seeding
+- Interactive Swagger (OpenAPI) documentation
 
-Citation:
+---
 
-Krassnig, P. J., Haselmann, M., Kremnitzer, M., & Gruber, D. P. (2025).
-The Industrial Screen Printing Anomaly Detection Dataset (ISP-AD). Zenodo.
-https://doi.org/10.5281/zenodo.14911043
+## 🛠 Tech Stack
+
+| Layer | Technology |
+|------|------------|
+| Language | Python 3.9 |
+| API Framework | FastAPI |
+| ASGI Server | Uvicorn |
+| ORM | SQLAlchemy |
+| Database | SQLite (development only) |
+| Authentication | JWT |
+| Authorization | RBAC |
+| Containers | Docker |
+| Orchestration | Docker Compose |
+| CI/CD | GitLab CI/CD |
+| Testing | Pytest |
+
+---
+
+## 📁 Project Structure
+
+```text
+project/
+├── app/
+│   ├── main.py
+│   ├── models/
+│   ├── schemas/
+│   ├── services/
+│   ├── routes/
+│   └── auth/
+├── db/
+│   └── dev.db            # auto-created
+├── Dockerfile.dev
+├── docker-compose.yml
+├── requirements.txt
+├── .gitignore
+└── .gitlab-ci.yml
+
+## 🚀 Getting Started (Development)
+Prerequisites :
+
+Docker
+
+Docker Compose
+
+** Clone the Repository
+git clone <repository-url>
+cd <project-directory>
+
+Build & Run the Application
+docker compose up --build
 
 
-## Model
+The API will be available at:
 
--- Architecture: DeepLabV3 with a ResNet backbone
+http://localhost:8000/docs
 
--- Framework: PyTorch / Torchvision
+Stop the Application
+docker compose down
 
--- Classes:
+## 🔑 Authentication & Authorization
 
-0 = normal surface
+- Authentication via JWT
 
-1 = defect
+- Authorization enforced using RBAC
 
--- Loss and metrics:
+- All protected endpoints validate:
 
--- CrossEntropyLoss (with option to use Focal Loss for imbalance)
+- Token validity
 
--- IoU (Intersection over Union)
+- User role
 
--- Dice coefficient
+- Resource ownership
 
-## Training Setup
+**Example request header:**
 
-## Platform: Kaggle Notebook
-
--GPU: NVIDIA T4 (CUDA enabled)
-
-## Train/Val/Test split:
-
--180k synthetic samples for training
-
--20k synthetic samples for validation
-
-1916 real images (good + defect) for testing
--
--Batch size: 16
-
--Optimizer: Adam (lr = 1e-4)
-
--Checkpoints saved after each epoch
-
-
-## Notes
-
--The ISP-AD dataset is large; initial training was done on subsets for faster turnaround.
-
--For better results, train on the full set and/or use more epochs.
-
--Future work: lighter models like UNet or DeepLabV3-ResNet50 for faster experimentation.
-
-## Author
-
-Shivani Sharma
-Project built and tested on Kaggle GPU environment.
+Authorization: Bearer <access_token>
